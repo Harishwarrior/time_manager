@@ -12,6 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
+        child: Icon(Icons.add),
       ),
       body: Container(),
     );
