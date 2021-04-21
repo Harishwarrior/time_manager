@@ -43,15 +43,17 @@ Widget CardView(BuildContext context, int index) {
     child: Container(
       margin: EdgeInsets.all(8.0),
       height: displayHeight(context) * 0.07,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Task ${index + 1}'),
-          LinearPercentIndicator(
-            width: displayWidth(context) * 0.5,
-            lineHeight: displayHeight(context) * 0.02,
-            percent: 0.2,
-            progressColor: Colors.teal,
+          Expanded(
+            child: LinearPercentIndicator(
+              lineHeight: displayHeight(context) * 0.02,
+              percent: 0.2,
+              progressColor: Colors.teal,
+            ),
           ),
         ],
       ),
