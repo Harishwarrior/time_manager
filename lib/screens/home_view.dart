@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:time_manager/screens/add_task_view.dart';
 import 'package:time_manager/utils/media_query.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +17,14 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text('Time Manager'),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddTask(),
+              ),
+            );
+          },
           child: Icon(Icons.add),
         ),
         body: Container(
