@@ -1,16 +1,14 @@
-import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
+part 'task.g.dart';
 
-class Task extends Equatable {
-  final String taskName;
-  final String taskDuration;
-  final bool taskCompleted;
+@HiveType(typeId: 0)
+class Task {
+  @HiveField(0)
+  final String taskTitle;
+  @HiveField(1)
+  final String taskDescription;
+  @HiveField(2)
+  final double taskDuration;
 
-  Task(this.taskName, this.taskDuration, this.taskCompleted);
-
-  @override
-  List<Object> get props => [
-        taskName,
-        taskDuration,
-        taskCompleted,
-      ];
+  Task(this.taskTitle, this.taskDuration, this.taskDescription);
 }

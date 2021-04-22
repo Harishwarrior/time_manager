@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:time_manager/utils/media_query.dart';
+import 'package:hive/hive.dart';
+import 'package:time_manager/models/task.dart';
 
 class AddTask extends StatefulWidget {
   @override
@@ -7,71 +8,87 @@ class AddTask extends StatefulWidget {
 }
 
 class _AddTaskState extends State<AddTask> {
-  double _currentSliderValue = 0;
+  final _formKey = GlobalKey<FormState>();
+  String _title;
+  String _description;
+  double _duration = 0;
+
+  void addTask(Task task) {
+    final tasksBox = Hive.box('tasks');
+    tasksBox.add(task);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Icon(Icons.save),
-          )
-        ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _formKey.currentState.save();
+          final newTask = Task(_title, _duration, _description);
+          addTask(newTask);
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('Saved')));
+        },
+        child: Icon(Icons.save),
       ),
-      body: Container(
-        margin: EdgeInsets.all(10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Title',
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
+      appBar: AppBar(),
+      body: Form(
+        key: _formKey,
+        child: Container(
+          margin: EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: 'Title',
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: InputBorder.none,
+                  ),
+                  onSaved: (value) => _title = value,
                 ),
               ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    'Duration',
-                    style: TextStyle(color: Colors.black87),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      'Duration',
+                      style: TextStyle(color: Colors.black87),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Slider(
-                    value: _currentSliderValue,
-                    min: 0,
-                    max: 12,
-                    divisions: 12,
-                    label: '${_currentSliderValue.round().toString() + ' hrs'}',
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
+                  Expanded(
+                    child: Slider(
+                      value: _duration,
+                      min: 0,
+                      max: 12,
+                      divisions: 12,
+                      label: '${_duration.toString() + ' hrs'}',
+                      onChanged: (double value) {
+                        setState(() {
+                          _duration = value;
+                        });
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Container(
-              child: TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Task',
-                  border: InputBorder.none,
-                ),
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
+                ],
               ),
-            ),
-          ],
+              Container(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintText: 'Task',
+                    border: InputBorder.none,
+                  ),
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
