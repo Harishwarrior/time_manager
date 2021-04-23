@@ -30,15 +30,17 @@ class _MyAppState extends State<MyApp> {
         future: Hive.openBox('tasks'),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasError)
+            if (snapshot.hasError) {
               return Text(snapshot.error.toString());
-            else
+            } else {
               return HomeScreen();
+            }
           }
           // Although opening a Box takes a very short time,
           // we still need to return something before the Future completes.
-          else
+          else {
             return Scaffold();
+          }
         },
       ),
     );

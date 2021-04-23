@@ -32,12 +32,23 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box('tasks').listenable(),
-        builder: (BuildContext context, taskBox, Widget child) {
+        builder: (BuildContext context, Box box, Widget? child) {
           return ListView.builder(
-            itemCount: taskBox.length,
+            itemCount: box.length,
             itemBuilder: (BuildContext context, int index) {
-              final task = taskBox.getAt(index) as Task;
-              return CardView(context, index, task);
+              final task = box.getAt(index) as Task;
+              return Dismissible(
+                key: UniqueKey(),
+                background: Container(
+                  color: Colors.red,
+                ),
+                onDismissed: (DismissDirection direction) {
+                  setState(() {
+                    box.deleteAt(index);
+                  });
+                },
+                child: CardView(context, index, task),
+              );
             },
           );
         },
@@ -47,25 +58,31 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 Widget CardView(BuildContext context, int index, Task task) {
-  return Card(
-    child: Container(
-      margin: EdgeInsets.all(8.0),
-      height: displayHeight(context) * 0.07,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(task.taskTitle),
-          Expanded(
-            child: LinearPercentIndicator(
-              lineHeight: displayHeight(context) * 0.02,
-              percent: task.taskDuration.toDouble() / 12,
-              progressColor: Colors.teal,
-            ),
-          ),
-        ],
-      ),
+  return ExpansionTile(
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(task.taskTitle),
+        LinearPercentIndicator(
+          center: Text('${task.taskDuration.round().toString()} hrs'),
+          width: displayWidth(context) * 0.5,
+          lineHeight: displayHeight(context) * 0.02,
+          percent: task.taskDuration / 12,
+          progressColor: Colors.teal,
+        ),
+      ],
     ),
-    elevation: 0.5,
+    children: [
+      Container(
+        margin: EdgeInsets.all(16.0),
+        height: displayHeight(context) * 0.07,
+        child: SingleChildScrollView(
+          child: Text(
+            task.taskDescription,
+            style: TextStyle(),
+          ),
+        ),
+      ),
+    ],
   );
 }

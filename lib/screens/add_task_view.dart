@@ -9,8 +9,8 @@ class AddTask extends StatefulWidget {
 
 class _AddTaskState extends State<AddTask> {
   final _formKey = GlobalKey<FormState>();
-  String _title;
-  String _description;
+  String _title = '';
+  String _description = '';
   double _duration = 0;
 
   void addTask(Task task) {
@@ -23,11 +23,16 @@ class _AddTaskState extends State<AddTask> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _formKey.currentState.save();
-          final newTask = Task(_title, _duration, _description);
-          addTask(newTask);
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text('Saved')));
+          if (_formKey.currentState!.validate()) {
+            // If the form is valid, display a snackbar. In the real world,
+            // you'd often call a server or save the information in a database.
+            _formKey.currentState!.save();
+            final newTask = Task(_title, _duration, _description);
+            addTask(newTask);
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text('Saved')));
+          }
+          ;
         },
         child: Icon(Icons.save),
       ),
@@ -41,13 +46,19 @@ class _AddTaskState extends State<AddTask> {
             children: [
               Container(
                 child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some title';
+                    }
+                    return null;
+                  },
                   decoration: InputDecoration(
                     hintText: 'Title',
                     filled: true,
                     fillColor: Colors.white,
                     border: InputBorder.none,
                   ),
-                  onSaved: (value) => _title = value,
+                  onSaved: (value) => _title = value!,
                 ),
               ),
               Row(
@@ -65,7 +76,7 @@ class _AddTaskState extends State<AddTask> {
                       min: 0,
                       max: 12,
                       divisions: 12,
-                      label: '${_duration.toString() + ' hrs'}',
+                      label: '${_duration.round().toString() + ' hrs'}',
                       onChanged: (double value) {
                         setState(() {
                           _duration = value;
@@ -77,12 +88,19 @@ class _AddTaskState extends State<AddTask> {
               ),
               Container(
                 child: TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter the description';
+                    }
+                    return null;
+                  },
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
                     hintText: 'Task',
                     border: InputBorder.none,
                   ),
+                  onSaved: (value) => _description = value!,
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
                 ),
