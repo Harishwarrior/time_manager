@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 final darkTheme = ThemeData(
   primarySwatch: Colors.teal,
-  primaryColor: Colors.black,
+  primaryColor: Color(0xFF1F1F1F),
   brightness: Brightness.dark,
-  backgroundColor: const Color(0xFF212121),
+  backgroundColor: const Color(0xFF262626),
   accentColor: Colors.teal,
   floatingActionButtonTheme:
       FloatingActionButtonThemeData(foregroundColor: Colors.white),
@@ -13,7 +13,7 @@ final darkTheme = ThemeData(
 
 final lightTheme = ThemeData(
   primarySwatch: Colors.teal,
-  primaryColor: Colors.white,
+  primaryColor: Colors.teal,
   brightness: Brightness.light,
   backgroundColor: const Color(0xFFE5E5E5),
   accentColor: Colors.teal,
