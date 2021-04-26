@@ -56,7 +56,6 @@ class _AddTaskState extends State<AddTask> {
                   decoration: InputDecoration(
                     hintText: 'Title',
                     filled: true,
-                    fillColor: Colors.white,
                     border: InputBorder.none,
                   ),
                   onSaved: (value) => _title = value!,
@@ -68,7 +67,6 @@ class _AddTaskState extends State<AddTask> {
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
                       'Duration',
-                      style: TextStyle(color: Colors.black87),
                     ),
                   ),
                   Expanded(
@@ -98,7 +96,6 @@ class _AddTaskState extends State<AddTask> {
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.white,
                     hintText: 'Task',
                     border: InputBorder.none,
                   ),

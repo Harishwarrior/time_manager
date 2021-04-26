@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:time_manager/models/task.dart';
 import 'package:time_manager/screens/add_task_view.dart';
+import 'package:time_manager/screens/settings_view.dart';
 import 'package:time_manager/utils/media_query.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,6 +19,18 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Time Manager'),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(
+                Icons.settings,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => (SettingsPage())),
+                );
+              }),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
