@@ -5,8 +5,6 @@ import 'package:time_manager/models/task.dart';
 class AddTask extends StatefulWidget {
   @override
   _AddTaskState createState() => _AddTaskState();
-
-  AddTask();
 }
 
 class _AddTaskState extends State<AddTask> {
