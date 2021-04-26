@@ -5,6 +5,8 @@ import 'package:time_manager/models/task.dart';
 class AddTask extends StatefulWidget {
   @override
   _AddTaskState createState() => _AddTaskState();
+
+  AddTask();
 }
 
 class _AddTaskState extends State<AddTask> {
@@ -52,6 +54,7 @@ class _AddTaskState extends State<AddTask> {
                     }
                     return null;
                   },
+                  textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
                     hintText: 'Title',
                     filled: true,
@@ -94,6 +97,7 @@ class _AddTaskState extends State<AddTask> {
                     }
                     return null;
                   },
+                  textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
