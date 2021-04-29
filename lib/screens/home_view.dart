@@ -77,7 +77,7 @@ Widget CardView(BuildContext context, int index, Task task) {
       children: [
         Text(task.taskTitle),
         LinearPercentIndicator(
-          center: Text('${task.taskDuration.round().toString()} hrs'),
+          center: Text('${task.taskDuration.toString()} hrs'),
           width: displayWidth(context) * 0.5,
           lineHeight: displayHeight(context) * 0.02,
           percent: task.taskDuration / 12,

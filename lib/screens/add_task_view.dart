@@ -72,10 +72,10 @@ class _AddTaskState extends State<AddTask> {
                   Expanded(
                     child: Slider(
                       value: _duration,
-                      min: 0,
-                      max: 12,
-                      divisions: 12,
-                      label: '${_duration.round().toString() + ' hrs'}',
+                      min: 0.0,
+                      max: 12.0,
+                      divisions: 24,
+                      label: '${_duration.toString() + ' hrs'}',
                       onChanged: (double value) {
                         setState(() {
                           _duration = value;
