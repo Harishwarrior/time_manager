@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.settings,
+                Icons.settings_outlined,
               ),
               onPressed: () {
                 Navigator.push(
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.note_add_outlined),
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box('tasks').listenable(),
@@ -75,9 +75,7 @@ Widget CustomListView(BuildContext context, int index, Task task) {
     elevation: 10.0,
     color: Theme.of(context).backgroundColor,
     child: ExpansionTile(
-      title: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      title: Wrap(
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),

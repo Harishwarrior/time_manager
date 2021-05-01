@@ -53,7 +53,7 @@ class _AddTaskState extends State<AddTask> {
             children: [
               Container(
                 child: TextFormField(
-                  style: TextStyle(height: 1.5, fontSize: 25.0),
+                  style: TextStyle(height: 1.5, fontSize: 22.0),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some title';
@@ -64,7 +64,7 @@ class _AddTaskState extends State<AddTask> {
                   decoration: InputDecoration(
                       hintText: 'Title',
                       border: InputBorder.none,
-                      hintStyle: TextStyle(fontSize: 25)),
+                      hintStyle: TextStyle(fontSize: 22)),
                   onSaved: (value) => _title = value!,
                 ),
               ),

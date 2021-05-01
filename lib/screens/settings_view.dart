@@ -25,7 +25,8 @@ class _SettingsPageState extends State<SettingsPage> {
       body: ListView(
         children: <Widget>[
           ListTile(
-            title: Text('Dark Theme'),
+            leading: Icon(Icons.brush_outlined),
+            title: Text('Theme'),
             contentPadding: const EdgeInsets.all(16.0),
             trailing: DayNightSwitcher(
               isDarkModeEnabled: _darkTheme,
@@ -38,10 +39,11 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.info_outline),
             title: Text('About'),
             onTap: () {
               ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text('Venam philips')));
+                  .showSnackBar(SnackBar(content: Text('Nothing to see here')));
             },
           ),
         ],
