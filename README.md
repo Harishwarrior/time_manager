@@ -1,8 +1,3 @@
-# time_manager
-
-An app to manage your time by scheduling tasks.
-
-
 <h1 align='center'>
 time_manager
   </h1>
