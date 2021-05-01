@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
 Widget CustomListView(BuildContext context, int index, Task task) {
   return Card(
     margin: EdgeInsets.all(8.0),
-    elevation: 5.0,
+    elevation: 10.0,
     color: Theme.of(context).backgroundColor,
     child: ExpansionTile(
       title: Column(
@@ -81,18 +81,18 @@ Widget CustomListView(BuildContext context, int index, Task task) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 15.0, top: 15.0),
+            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
             child: Text(
               task.taskTitle,
-              style: TextStyle(fontSize: 20.0),
+              style: TextStyle(fontSize: 18.0),
               maxLines: 5,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 15.0),
+            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
             child: LinearPercentIndicator(
               center: Text('${task.taskDuration.toString()} hrs'),
-              lineHeight: displayHeight(context) * 0.02,
+              lineHeight: 15,
               animation: true,
               animationDuration: 1500,
               restartAnimation: true,
