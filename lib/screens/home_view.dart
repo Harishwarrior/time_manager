@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     box.deleteAt(index);
                   });
                 },
-                child: CardView(context, index, task),
+                child: CustomListView(context, index, task),
               );
             },
           );
@@ -70,15 +70,22 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget CardView(BuildContext context, int index, Task task) {
+Widget CustomListView(BuildContext context, int index, Task task) {
   return ExpansionTile(
-    title: Row(
+    title: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(task.taskTitle),
+        Padding(
+          padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
+          child: Text(
+            task.taskTitle,
+            style: TextStyle(fontSize: 20.0),
+            maxLines: 5,
+          ),
+        ),
         LinearPercentIndicator(
           center: Text('${task.taskDuration.toString()} hrs'),
-          width: displayWidth(context) * 0.5,
           lineHeight: displayHeight(context) * 0.02,
           percent: task.taskDuration / 12,
           progressColor: Theme.of(context).accentColor,
@@ -88,7 +95,6 @@ Widget CardView(BuildContext context, int index, Task task) {
     children: [
       Container(
         margin: EdgeInsets.all(16.0),
-        height: displayHeight(context) * 0.07,
         child: SingleChildScrollView(
           child: Text(
             task.taskDescription,

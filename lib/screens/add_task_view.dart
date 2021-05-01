@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
+import 'package:time_manager/utils/media_query.dart';
 
 class AddTask extends StatefulWidget {
   @override
@@ -46,6 +47,7 @@ class _AddTaskState extends State<AddTask> {
             children: [
               Container(
                 child: TextFormField(
+                  style: TextStyle(height: 1.5, fontSize: 25.0),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some title';
@@ -54,21 +56,14 @@ class _AddTaskState extends State<AddTask> {
                   },
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
-                    hintText: 'Title',
-                    filled: true,
-                    border: InputBorder.none,
-                  ),
+                      hintText: 'Title',
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(fontSize: 25)),
                   onSaved: (value) => _title = value!,
                 ),
               ),
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Text(
-                      'Duration',
-                    ),
-                  ),
                   Expanded(
                     child: Slider(
                       value: _duration,
@@ -85,7 +80,7 @@ class _AddTaskState extends State<AddTask> {
                   ),
                 ],
               ),
-              Container(
+              Expanded(
                 child: TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -95,8 +90,7 @@ class _AddTaskState extends State<AddTask> {
                   },
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
-                    filled: true,
-                    hintText: 'Task',
+                    hintText: 'Description',
                     border: InputBorder.none,
                   ),
                   onSaved: (value) => _description = value!,
