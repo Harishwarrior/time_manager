@@ -5,7 +5,6 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:time_manager/models/task.dart';
 import 'package:time_manager/screens/add_task_view.dart';
 import 'package:time_manager/screens/settings_view.dart';
-import 'package:time_manager/utils/media_query.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
