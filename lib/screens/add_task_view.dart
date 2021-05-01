@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
-import 'package:time_manager/utils/media_query.dart';
+
 
 class AddTask extends StatefulWidget {
   @override
