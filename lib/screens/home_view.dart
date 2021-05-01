@@ -81,7 +81,7 @@ Widget CardView(BuildContext context, int index, Task task) {
           width: displayWidth(context) * 0.5,
           lineHeight: displayHeight(context) * 0.02,
           percent: task.taskDuration / 12,
-          progressColor: Colors.teal,
+          progressColor: Theme.of(context).accentColor,
         ),
       ],
     ),
