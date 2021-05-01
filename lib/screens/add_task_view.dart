@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
 
-
 class AddTask extends StatefulWidget {
   @override
   _AddTaskState createState() => _AddTaskState();
