@@ -18,8 +18,8 @@ An app to manage your time by scheduling tasks.. Made with Flutter❤️. Works 
   <a href="http://github.com/Harishwarrior/time_manager/issues">
       <img src="https://img.shields.io/github/issues/Harishwarrior/time_manager?style=for-the-badge" alt="issues">
   </a>
-  
-  <img src="https://img.shields.io/github/downloads/Harishwarrior/time_manager/total?style=for-the-badge" alt="downloads">
+   <a href="https://github.com/Harishwarrior/time_manager/releases">
+  <img src="https://img.shields.io/github/downloads/Harishwarrior/time_manager/total?style=for-the-badge" alt="downloads"></a>
 
 ## Getting Started
 
