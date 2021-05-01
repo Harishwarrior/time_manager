@@ -16,7 +16,7 @@ final lightTheme = ThemeData(
   primarySwatch: Colors.teal,
   primaryColor: Colors.teal,
   brightness: Brightness.light,
-  backgroundColor: const Color(0xFFE5E5E5),
+  backgroundColor: Colors.white,
   accentColor: Colors.teal,
   floatingActionButtonTheme:
       FloatingActionButtonThemeData(foregroundColor: Colors.white),

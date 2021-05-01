@@ -71,37 +71,52 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 Widget CustomListView(BuildContext context, int index, Task task) {
-  return ExpansionTile(
-    title: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
-          child: Text(
-            task.taskTitle,
-            style: TextStyle(fontSize: 20.0),
-            maxLines: 5,
+  return Card(
+    margin: EdgeInsets.all(8.0),
+    elevation: 5.0,
+    color: Theme.of(context).backgroundColor,
+    child: ExpansionTile(
+      title: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 4.0, bottom: 15.0, top: 15.0),
+            child: Text(
+              task.taskTitle,
+              style: TextStyle(fontSize: 20.0),
+              maxLines: 5,
+            ),
           ),
-        ),
-        LinearPercentIndicator(
-          center: Text('${task.taskDuration.toString()} hrs'),
-          lineHeight: displayHeight(context) * 0.02,
-          percent: task.taskDuration / 12,
-          progressColor: Theme.of(context).accentColor,
+          Padding(
+            padding: const EdgeInsets.only(left: 4.0, bottom: 15.0),
+            child: LinearPercentIndicator(
+              center: Text('${task.taskDuration.toString()} hrs'),
+              lineHeight: displayHeight(context) * 0.02,
+              animation: true,
+              animationDuration: 1500,
+              restartAnimation: true,
+              percent: task.taskDuration / 12,
+              progressColor: Theme.of(context).accentColor,
+            ),
+          ),
+        ],
+      ),
+      children: [
+        Container(
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
+              child: Text(
+                task.taskDescription,
+                style: TextStyle(),
+              ),
+            ),
+          ),
         ),
       ],
     ),
-    children: [
-      Container(
-        margin: EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Text(
-            task.taskDescription,
-            style: TextStyle(),
-          ),
-        ),
-      ),
-    ],
   );
 }

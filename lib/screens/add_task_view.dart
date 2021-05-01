@@ -40,7 +40,7 @@ class _AddTaskState extends State<AddTask> {
       body: Form(
         key: _formKey,
         child: Container(
-          margin: EdgeInsets.all(10.0),
+          margin: EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -89,7 +89,7 @@ class _AddTaskState extends State<AddTask> {
                   },
                   textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
-                    hintText: 'Description',
+                    hintText: 'Note',
                     border: InputBorder.none,
                   ),
                   onSaved: (value) => _description = value!,
