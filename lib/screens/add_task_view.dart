@@ -20,28 +20,26 @@ class _AddTaskState extends State<AddTask> {
 
   Future<bool> saveTask() async {
     if (_formKey.currentState!.validate()) {
-      // If the form is valid, display a snackbar. In the real world,
-      // you'd often call a server or save the information in a database.
       _formKey.currentState!.save();
       final newTask = Task(_title, _duration, _description);
       addTask(newTask);
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('Saved')));
+      Navigator.pop(context);
       return true;
     }
-    ;
     return false;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           saveTask();
-          Navigator.pop(context);
         },
-        child: Icon(Icons.save),
+        icon: Icon(Icons.save),
+        label: Text('Save'),
       ),
       appBar: AppBar(),
       body: Form(

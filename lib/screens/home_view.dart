@@ -6,6 +6,8 @@ import 'package:time_manager/models/task.dart';
 import 'package:time_manager/screens/add_task_view.dart';
 import 'package:time_manager/screens/settings_view.dart';
 
+import 'edit_notes_view.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -31,11 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
               }),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.of(context).push(_createRoute());
         },
-        child: Icon(Icons.note_add_outlined),
+        icon: Icon(Icons.note_add_outlined),
+        label: Text('New'),
       ),
       body: ValueListenableBuilder(
         valueListenable: Hive.box('tasks').listenable(),
@@ -83,50 +86,62 @@ Route _createRoute() {
 }
 
 Widget CustomListView(BuildContext context, int index, Task task) {
-  return Card(
-    margin: EdgeInsets.all(8.0),
-    elevation: 10.0,
-    color: Theme.of(context).backgroundColor,
-    child: ExpansionTile(
-      title: Wrap(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
-            child: Text(
-              task.taskTitle,
-              style: TextStyle(fontSize: 18.0),
-              maxLines: 5,
+  return GestureDetector(
+    onLongPress: () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (BuildContext context) {
+        return EditNotes(
+          box: Hive.box('tasks'),
+          task: task,
+          index: index,
+        );
+      }));
+    },
+    child: Card(
+      margin: EdgeInsets.all(8.0),
+      elevation: 10.0,
+      color: Theme.of(context).backgroundColor,
+      child: ExpansionTile(
+        title: Wrap(
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
+              child: Text(
+                task.taskTitle,
+                style: TextStyle(fontSize: 18.0),
+                maxLines: 5,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
-            child: LinearPercentIndicator(
-              center: Text('${task.taskDuration.toString()} hrs'),
-              lineHeight: 15,
-              animation: true,
-              animationDuration: 1500,
-              restartAnimation: true,
-              percent: task.taskDuration / 12,
-              progressColor: Theme.of(context).accentColor,
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
+              child: LinearPercentIndicator(
+                center: Text('${task.taskDuration.toString()} hrs'),
+                lineHeight: 15,
+                animation: true,
+                animationDuration: 1500,
+                restartAnimation: true,
+                percent: task.taskDuration / 12,
+                progressColor: Theme.of(context).accentColor,
+              ),
+            ),
+          ],
+        ),
+        children: [
+          Container(
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
+                child: Text(
+                  task.taskDescription,
+                ),
+              ),
             ),
           ),
         ],
       ),
-      children: [
-        Container(
-          alignment: Alignment.centerLeft,
-          margin: EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
-              child: Text(
-                task.taskDescription,
-                style: TextStyle(),
-              ),
-            ),
-          ),
-        ),
-      ],
     ),
   );
 }
