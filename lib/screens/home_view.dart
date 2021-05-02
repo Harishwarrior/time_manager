@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
               icon: Icon(
                 Icons.settings_outlined,
+                semanticLabel: 'settings',
               ),
               onPressed: () {
                 Navigator.push(
@@ -37,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           Navigator.of(context).push(_createRoute());
         },
+        tooltip: 'New task',
         icon: Icon(Icons.note_add_outlined),
         label: Text('New'),
       ),

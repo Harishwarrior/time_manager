@@ -40,6 +40,7 @@ class _EditNotesState extends State<EditNotes> {
           child: FloatingActionButton.extended(
             icon: Icon(Icons.add),
             label: Text('UPDATE'),
+            tooltip: 'Update task',
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 updateNote(index, description, title, duration);

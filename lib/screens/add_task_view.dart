@@ -40,8 +40,11 @@ class _AddTaskState extends State<AddTask> {
         },
         icon: Icon(Icons.save),
         label: Text('Save'),
+        tooltip: 'Save task',
       ),
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Add Task'),
+      ),
       body: Form(
         key: _formKey,
         child: Container(
