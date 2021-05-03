@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
 
-class EditNotes extends StatefulWidget {
-  EditNotes({required this.box, required this.task, required this.index});
+class UpdateNotes extends StatefulWidget {
+  UpdateNotes({required this.box, required this.task, required this.index});
   final Box box;
   final Task task;
   final int index;
@@ -12,7 +12,7 @@ class EditNotes extends StatefulWidget {
   _EditNotesState createState() => _EditNotesState();
 }
 
-class _EditNotesState extends State<EditNotes> {
+class _EditNotesState extends State<UpdateNotes> {
   Future<void> updateNote(int index, String newDescription, String newTitle,
       double duration) async {
     final newTask = Task(newTitle, duration, newDescription);
@@ -37,6 +37,12 @@ class _EditNotesState extends State<EditNotes> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             updateNote(index, description, title, duration);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Updated'),
+                duration: Duration(milliseconds: 700),
+              ),
+            );
             Navigator.pop(context);
           }
         },
