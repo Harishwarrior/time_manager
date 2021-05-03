@@ -23,8 +23,12 @@ class _AddTaskState extends State<AddTask> {
       _formKey.currentState!.save();
       final newTask = Task(_title, _duration, _description);
       addTask(newTask);
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Saved')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Saved'),
+          duration: Duration(milliseconds: 700),
+        ),
+      );
       Navigator.pop(context);
       return true;
     }
