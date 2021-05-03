@@ -6,7 +6,7 @@ import 'package:time_manager/models/task.dart';
 import 'package:time_manager/screens/add_task_view.dart';
 import 'package:time_manager/screens/settings_view.dart';
 
-import 'update_notes_view.dart';
+import 'update_task_view.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -93,7 +93,7 @@ Widget CustomListView(BuildContext context, int index, Task task) {
     onTap: () {
       Navigator.push(context,
           MaterialPageRoute(builder: (BuildContext context) {
-        return UpdateNotes(
+        return UpdateTasks(
           box: Hive.box('tasks'),
           task: task,
           index: index,

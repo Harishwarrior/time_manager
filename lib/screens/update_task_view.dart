@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
 
-class UpdateNotes extends StatefulWidget {
-  UpdateNotes({required this.box, required this.task, required this.index});
+class UpdateTasks extends StatefulWidget {
+  UpdateTasks({required this.box, required this.task, required this.index});
   final Box box;
   final Task task;
   final int index;
@@ -12,7 +12,7 @@ class UpdateNotes extends StatefulWidget {
   _EditNotesState createState() => _EditNotesState();
 }
 
-class _EditNotesState extends State<UpdateNotes> {
+class _EditNotesState extends State<UpdateTasks> {
   Future<void> updateNote(int index, String newDescription, String newTitle,
       double duration) async {
     final newTask = Task(newTitle, duration, newDescription);
