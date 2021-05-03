@@ -52,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Dismissible(
                 key: UniqueKey(),
                 background: Container(
+                  margin: EdgeInsets.all(8.0),
                   color: Colors.red,
                 ),
                 onDismissed: (DismissDirection direction) {
@@ -89,7 +90,7 @@ Route _createRoute() {
 
 Widget CustomListView(BuildContext context, int index, Task task) {
   return GestureDetector(
-    onLongPress: () {
+    onTap: () {
       Navigator.push(context,
           MaterialPageRoute(builder: (BuildContext context) {
         return EditNotes(
@@ -103,43 +104,26 @@ Widget CustomListView(BuildContext context, int index, Task task) {
       margin: EdgeInsets.all(8.0),
       elevation: 10.0,
       color: Theme.of(context).backgroundColor,
-      child: ExpansionTile(
-        title: Wrap(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
-              child: Text(
-                task.taskTitle,
-                style: TextStyle(fontSize: 18.0),
-                maxLines: 5,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
-              child: LinearPercentIndicator(
-                center: Text('${task.taskDuration.toString()} hrs'),
-                lineHeight: 15,
-                animation: true,
-                animationDuration: 1500,
-                restartAnimation: true,
-                percent: task.taskDuration / 12,
-                progressColor: Theme.of(context).accentColor,
-              ),
-            ),
-          ],
-        ),
+      child: Wrap(
         children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            margin: EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 4.0, bottom: 8.0),
-                child: Text(
-                  task.taskDescription,
-                ),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
+            child: Text(
+              task.taskTitle,
+              style: TextStyle(fontSize: 18.0),
+              maxLines: 5,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
+            child: LinearPercentIndicator(
+              center: Text('${task.taskDuration.toString()} hrs'),
+              lineHeight: 15,
+              animation: true,
+              animationDuration: 1500,
+              restartAnimation: true,
+              percent: task.taskDuration / 12,
+              progressColor: Theme.of(context).accentColor,
             ),
           ),
         ],
