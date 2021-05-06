@@ -109,7 +109,7 @@ Widget CustomListView(BuildContext context, int index, Task task) {
       child: Wrap(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
+            padding: const EdgeInsets.all(15.0),
             child: Hero(
               tag: 'titleHero',
               child: Text(
@@ -120,7 +120,8 @@ Widget CustomListView(BuildContext context, int index, Task task) {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
+            padding:
+                const EdgeInsets.only(bottom: 15.0, left: 15.0, right: 15.0),
             child: LinearPercentIndicator(
               center: Text('${task.taskDuration.toString()} hrs'),
               lineHeight: 15,
