@@ -128,6 +128,7 @@ Widget CustomListView(BuildContext context, int index, Task task) {
               animation: true,
               animationDuration: 1000,
               percent: task.taskDuration / 12,
+              backgroundColor: Colors.black26,
               progressColor: Theme.of(context).accentColor,
             ),
           ),
