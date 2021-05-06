@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 final darkTheme = ThemeData(
   primarySwatch: Colors.teal,
+  fontFamily: 'Product Sans',
   primaryColor: Color(0xFF1F1F1F),
   scaffoldBackgroundColor: Color(0xFF1F1F1F),
   brightness: Brightness.dark,
@@ -15,6 +16,7 @@ final darkTheme = ThemeData(
 final lightTheme = ThemeData(
   primarySwatch: Colors.teal,
   primaryColor: Colors.teal,
+  fontFamily: 'Product Sans',
   brightness: Brightness.light,
   backgroundColor: Colors.white,
   accentColor: Colors.teal,

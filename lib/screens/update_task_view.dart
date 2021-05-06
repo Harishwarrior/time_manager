@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
@@ -31,8 +32,8 @@ class _EditNotesState extends State<UpdateTasks> {
     return Scaffold(
       appBar: AppBar(),
       floatingActionButton: FloatingActionButton.extended(
-        icon: Icon(Icons.add),
-        label: Text('UPDATE'),
+        icon: Icon(EvaIcons.sync),
+        label: Text('Update'),
         tooltip: 'Update task',
         onPressed: () {
           if (_formKey.currentState!.validate()) {

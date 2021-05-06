@@ -1,4 +1,5 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -25,7 +26,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: ListView(
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.brush_outlined),
+            leading: Icon(EvaIcons.brushOutline),
             title: Text('Theme'),
             contentPadding: const EdgeInsets.all(16.0),
             trailing: DayNightSwitcher(
@@ -39,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.info_outline),
+            leading: Icon(EvaIcons.infoOutline),
             title: Text('About'),
             onTap: () {
               ScaffoldMessenger.of(context)

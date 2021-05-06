@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:time_manager/models/task.dart';
@@ -42,7 +43,7 @@ class _AddTaskState extends State<AddTask> {
         onPressed: () {
           saveTask();
         },
-        icon: Icon(Icons.save),
+        icon: Icon(EvaIcons.saveOutline),
         label: Text('Save'),
         tooltip: 'Save task',
       ),

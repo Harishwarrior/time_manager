@@ -5,6 +5,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:time_manager/models/task.dart';
 import 'package:time_manager/screens/add_task_view.dart';
 import 'package:time_manager/screens/settings_view.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 import 'update_task_view.dart';
 
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.settings_outlined,
+                EvaIcons.settingsOutline,
                 semanticLabel: 'settings',
               ),
               onPressed: () {
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.of(context).push(_createRoute());
         },
         tooltip: 'New task',
-        icon: Icon(Icons.note_add_outlined),
+        icon: Icon(EvaIcons.fileAddOutline),
         label: Text('New'),
       ),
       body: ValueListenableBuilder(
@@ -54,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 background: Container(
                   margin: EdgeInsets.all(8.0),
                   color: Colors.red,
+                  child: Icon(EvaIcons.trashOutline),
                 ),
                 onDismissed: (DismissDirection direction) {
                   setState(() {
