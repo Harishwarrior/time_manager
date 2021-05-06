@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         valueListenable: Hive.box('tasks').listenable(),
         builder: (BuildContext context, Box box, Widget? child) {
           return ListView.builder(
+            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemCount: box.length,
