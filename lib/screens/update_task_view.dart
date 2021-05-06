@@ -98,9 +98,7 @@ class _EditNotesState extends State<UpdateTasks> {
                       maxLines: null,
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+
                   // Slider(
                   //   value: duration,
                   //   min: 0.0,

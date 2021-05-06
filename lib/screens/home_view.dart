@@ -110,10 +110,13 @@ Widget CustomListView(BuildContext context, int index, Task task) {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 4.0, bottom: 10.0, top: 10.0),
-            child: Text(
-              task.taskTitle,
-              style: TextStyle(fontSize: 18.0),
-              maxLines: 5,
+            child: Hero(
+              tag: 'titleHero',
+              child: Text(
+                task.taskTitle,
+                style: TextStyle(fontSize: 18.0),
+                maxLines: 5,
+              ),
             ),
           ),
           Padding(
