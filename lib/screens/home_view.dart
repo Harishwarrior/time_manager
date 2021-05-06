@@ -47,6 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
         valueListenable: Hive.box('tasks').listenable(),
         builder: (BuildContext context, Box box, Widget? child) {
           return ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
             itemCount: box.length,
             itemBuilder: (BuildContext context, int index) {
               final task = box.getAt(index) as Task;
@@ -110,13 +112,10 @@ Widget CustomListView(BuildContext context, int index, Task task) {
         children: [
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Hero(
-              tag: 'titleHero',
-              child: Text(
-                task.taskTitle,
-                style: TextStyle(fontSize: 18.0),
-                maxLines: 5,
-              ),
+            child: Text(
+              task.taskTitle,
+              style: TextStyle(fontSize: 18.0),
+              maxLines: 5,
             ),
           ),
           Padding(
