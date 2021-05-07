@@ -43,8 +43,22 @@ class _SettingsPageState extends State<SettingsPage> {
             leading: Icon(EvaIcons.infoOutline),
             title: Text('About'),
             onTap: () {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text('Nothing to see here')));
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  backgroundColor: Theme.of(context).backgroundColor,
+                  title: Text('About'),
+                  content: Text('You have raised a Alert Dialog Box'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(ctx).pop();
+                      },
+                      child: Text('okay'),
+                    ),
+                  ],
+                ),
+              );
             },
           ),
         ],
