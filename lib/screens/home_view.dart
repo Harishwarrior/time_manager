@@ -96,14 +96,18 @@ Route _createRoute() {
 Widget CustomListView(BuildContext context, int index, Task task) {
   return GestureDetector(
     onTap: () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (BuildContext context) {
-        return UpdateTasks(
-          box: Hive.box('tasks'),
-          task: task,
-          index: index,
-        );
-      }));
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) {
+            return UpdateTasks(
+              box: Hive.box('tasks'),
+              task: task,
+              index: index,
+            );
+          },
+        ),
+      );
     },
     child: Card(
       margin: EdgeInsets.all(8.0),

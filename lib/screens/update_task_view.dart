@@ -16,7 +16,7 @@ class UpdateTasks extends StatefulWidget {
 class _EditNotesState extends State<UpdateTasks> {
   Future<void> updateNote(int index, String newDescription, String newTitle,
       double duration) async {
-    final newTask = Task(newTitle, duration, newDescription);
+    final newTask = Task(newTitle, newDescription, duration);
     final box = widget.box;
     await box.putAt(index, newTask);
   }
@@ -98,19 +98,6 @@ class _EditNotesState extends State<UpdateTasks> {
                       maxLines: null,
                     ),
                   ),
-
-                  // Slider(
-                  //   value: duration,
-                  //   min: 0.0,
-                  //   max: 12.0,
-                  //   divisions: 24,
-                  //   label: '${duration.toString() + ' hrs'}',
-                  //   onChanged: (double value) {
-                  //     setState(() {
-                  //       duration = value;
-                  //     });
-                  //   },
-                  // ),
                 ],
               )),
         ),

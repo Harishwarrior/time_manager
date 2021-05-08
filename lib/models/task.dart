@@ -10,5 +10,5 @@ class Task {
   @HiveField(2)
   final double taskDuration;
 
-  Task(this.taskTitle, this.taskDuration, this.taskDescription);
+  Task(this.taskTitle, this.taskDescription, this.taskDuration);
 }

@@ -22,7 +22,7 @@ class _AddTaskState extends State<AddTask> {
   Future<bool> saveTask() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      final newTask = Task(_title, _duration, _description);
+      final newTask = Task(_title, _description, _duration);
       addTask(newTask);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
