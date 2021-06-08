@@ -26,9 +26,9 @@ An app to manage your time by scheduling tasks.. Made with Flutter❤️. Works 
 - [ ] Refactor
 
 ## Screenshots
-![](https://github.com/Harishwarrior/modern_calculator/blob/master/screenshots/android.jpg) 
+![](https://github.com/Harishwarrior/time_manager/blob/master/screenshots/android.jpg) 
 
-![](https://github.com/Harishwarrior/modern_calculator/blob/master/screenshots/windows.jpg) 
+![](https://github.com/Harishwarrior/time_manager/blob/master/screenshots/windows.png) 
 
 ## Getting Started
 
