@@ -25,6 +25,11 @@ An app to manage your time by scheduling tasks.. Made with Flutter❤️. Works 
 - [ ] BloC Pattern
 - [ ] Refactor
 
+## Screenshots
+![](https://github.com/Harishwarrior/modern_calculator/blob/master/screenshots/android.jpg) 
+
+![](https://github.com/Harishwarrior/modern_calculator/blob/master/screenshots/windows.jpg) 
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
