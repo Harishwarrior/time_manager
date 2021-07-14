@@ -48,7 +48,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 builder: (ctx) => AlertDialog(
                   backgroundColor: Theme.of(context).backgroundColor,
                   title: Text('About'),
-                  content: Text('You have raised a Alert Dialog Box'),
+                  content: Text('Time manager is a hobby project created by Harish Anbalagan'),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
