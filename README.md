@@ -23,7 +23,6 @@ An app to manage your time by time managing tasks.. Made with Flutter❤️. Wor
 
 ## TODO
 - [ ] Option to update Time limit.
-- [ ] BloC Pattern
 - [ ] Refactor
 
 ## Screenshots
