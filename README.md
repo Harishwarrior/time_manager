@@ -3,7 +3,7 @@ time_manager
   </h1>
 
 <p align='center'>
-An app to manage your time by scheduling tasks.. Made with Flutter❤️. Works in Android,iOS, Windows, Mac os, Linux.
+An app to manage your time by time managing tasks.. Made with Flutter❤️. Works in Android,iOS, Windows, Mac os, Linux.
 </p>
 
 <p align="center">
